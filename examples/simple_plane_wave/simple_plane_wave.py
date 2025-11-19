@@ -42,7 +42,7 @@ def main() -> None:
     sound_speed_map = 1540 * np.ones((grid.nx, grid.ny))  # m/s
     density_map = 1000 * np.ones((grid.nx, grid.ny))  # kg/m^3
     alpha_coeff_map = 0.5 * np.ones((grid.nx, grid.ny))  # dB/(MHz^y cm)
-    alpha_power_map = 1.0 * np.ones((grid.nx, grid.ny))  # power law exponent
+    alpha_power_map = 1.1 * np.ones((grid.nx, grid.ny))  # power law exponent
     beta_map = 0.0 * np.ones((grid.nx, grid.ny))  # nonlinearity parameter
 
     # embed an object with different properties in the center of the medium
@@ -126,6 +126,7 @@ def main() -> None:
         source=source,
         sensor=sensor,
         run_on_memory=False,
+        pml_layer_thickness_px=20,
     )
     # fw_solver.summary()
     # execute the solver
